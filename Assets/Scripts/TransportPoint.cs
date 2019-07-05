@@ -34,9 +34,13 @@ public class TransportPoint : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if(player.TransportJustLeave!=this.gameObject)
-        player.isTransportCD = false;
+        if(collision.gameObject.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            if(player.TransportJustLeave!=gameObject)
+            player.isTransportCD = false;
+    
+        }
         
     }
 }
