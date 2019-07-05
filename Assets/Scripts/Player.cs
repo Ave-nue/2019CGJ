@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Creature
 {
     Rigidbody2D rg;
 
-    public float speed = 10f;
     public bool isTransportCD = false;
     public GameObject TransportJustLeave;
 
@@ -28,7 +27,8 @@ public class Player : MonoBehaviour
         Debug.Log("movedir:" + movedir);
         if (movedir != new Vector2(0, 0))
         {
-            rg.velocity = movedir * speed;
+            //rg.velocity = movedir * speed;
+            Move(movedir);
         }
     }
 

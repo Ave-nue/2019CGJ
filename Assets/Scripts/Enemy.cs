@@ -6,7 +6,7 @@ public class Enemy : Creature
 {
 
     public GameObject target;
-    public float speed = 5f;
+
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class Enemy : Creature
 
     void Update()
     {
-        
+        ChasePlayer();
     }
     
 

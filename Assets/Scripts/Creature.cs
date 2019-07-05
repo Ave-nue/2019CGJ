@@ -5,7 +5,7 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     [SerializeField]
-    float velocity;
+    float speed = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Creature : MonoBehaviour
 
     protected void Move(Vector2 direction)
     {
-        transform.Translate(direction * velocity * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     protected void MoveTo(Vector3 target)
