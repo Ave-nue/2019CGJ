@@ -26,6 +26,6 @@ public class Creature : MonoBehaviour
 
     protected void MoveTo(Vector3 target)
     {
-
+        Move((target - transform.position).normalized);
     }
 }
