@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Barrier : MonoBehaviour
 {
+    private Transform waveGO;
+
     // Start is called before the first frame update
     void Start()
     {
