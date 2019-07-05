@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public float speed = 10f;
     public bool isTransportCD = false;
+    public GameObject TransportJustLeave;
 
     void Start()
     {
