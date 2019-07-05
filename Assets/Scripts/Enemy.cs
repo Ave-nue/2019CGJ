@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Creature
 {
 
     public GameObject target;
-
-    public 
+    public float speed = 5f;
 
     void Start()
     {
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     void ChasePlayer()
     {
-        MoveTo();
+        MoveTo(target.transform.position);
     }
     
 }

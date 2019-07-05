@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rg;
+
     public float speed = 10f;
+    public bool isTransportCD = false;
 
     void Start()
     {
@@ -28,4 +30,13 @@ public class Player : MonoBehaviour
             rg.velocity = movedir * speed;
         }
     }
+
+    // 传送到坐标
+    public void Transport(Vector3 pos)
+    {
+        transform.position = pos;
+        isTransportCD = true;
+    }
+
+
 }
