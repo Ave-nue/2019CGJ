@@ -10,6 +10,7 @@ public class Enemy : Creature
     public float escape_speed =1f;
 
     public float HateRange = 2f;
+    public float LoveRange = 3f;
     public bool isHate = false;
 
 
@@ -55,7 +56,7 @@ public class Enemy : Creature
     {
         if(isHate)
         {
-            if((transform.position-target.transform.position).magnitude>HateRange)
+            if((transform.position-target.transform.position).magnitude>LoveRange)
             {
                 isHate = false;
                 Move(new Vector2(0, 0));
@@ -82,19 +83,23 @@ public class Enemy : Creature
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, HateRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, LoveRange);
     }
 
     void SearchPlayer(float range)
     {
         float distance = (transform.position - target.transform.position).magnitude;
 
-        if (distance > HateRange)
+        if (distance > LoveRange)
         {
             isHate = false;
         }
-        else
+        else if (distance < HateRange)
             isHate = true;
+        else;
     }
 
 }

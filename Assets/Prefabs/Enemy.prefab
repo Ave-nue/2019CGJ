@@ -98,7 +98,9 @@ MonoBehaviour:
   rg: {fileID: 0}
   attack: 1
   target: {fileID: 0}
-  HateRange: 3
+  escape_speed: 1
+  HateRange: 2
+  LoveRange: 3
   isHate: 0
 --- !u!50 &6895859851698220417
 Rigidbody2D:
