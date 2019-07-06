@@ -33,7 +33,7 @@ public class Point : MonoBehaviour
                     current_number = number;
                 else
                     //text.richText = true;
-                    current_number += (number - current_number) / 100;
+                    current_number += (int)((number - current_number) / increase_speed);
             }
             text.text = current_number.ToString();
 

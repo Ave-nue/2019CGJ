@@ -81,6 +81,10 @@ public class EnemyPatrol : Enemy
                 Vector2 dir = player.rg.velocity;
                 Move(dir * fly_speed);
 
+                LevelPanel.levelPanel.BottomFrame();
+                LevelPanel.levelPanel.ShakeObj(transform);
+
+
             }
             else
             {

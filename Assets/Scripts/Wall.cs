@@ -37,6 +37,11 @@ public class Wall : MonoBehaviour
                 rg.constraints = RigidbodyConstraints2D.None;
                 rg.velocity = dir * fly_speed;
 
+                //顿帧
+                LevelPanel.levelPanel.BottomFrame();
+                LevelPanel.levelPanel.ShakeObj(transform);
+
+
             }
         }
     }
