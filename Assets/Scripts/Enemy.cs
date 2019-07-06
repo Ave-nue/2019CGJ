@@ -13,7 +13,7 @@ public class Enemy : Creature
 
     Player player;
 
-    void Start()
+    public void Start()
     {
         base.Start();
         target = GameObject.Find("Player");
@@ -25,7 +25,7 @@ public class Enemy : Creature
 
     }
 
-    void Update()
+    public void Update()
     {
         SearchPlayer(HateRange);
         if(player.isPowerUP)
@@ -38,13 +38,27 @@ public class Enemy : Creature
 
     void ChasePlayer()
     {
-        if(isHate)
-        MoveTo(target.transform.position);
+        if (isHate)
+            MoveTo(target.transform.position);
+        else
+            Move(new Vector2(0, 0));
     }
 
     void EscapePlayer()
     {
         Move((transform.position - target.transform.position)*0.02f);
+    }
+
+    void StopChase()
+    {
+        if(isHate)
+        {
+            if((transform.position-target.transform.position).magnitude>HateRange)
+            {
+                isHate = false;
+                Move(new Vector2(0, 0));
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,7 +86,7 @@ public class Enemy : Creature
     void SearchPlayer(float range)
     {
         float distance = (transform.position - target.transform.position).magnitude;
-        Debug.Log(distance);
+
         if (distance > HateRange)
         {
             isHate = false;

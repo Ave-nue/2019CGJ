@@ -25,7 +25,7 @@ public class Creature : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        Debug.Log(direction * speed);
+
         rg.velocity = direction * speed;
         //transform.Translate(direction * speed * Time.deltaTime);
     }
