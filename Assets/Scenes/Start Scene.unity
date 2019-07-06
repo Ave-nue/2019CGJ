@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfd4d5b06c14b541820a50e4ac1c3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomTime: 3
+  bottomTime: 0.3
   shake_range: 0.1
   pausePanel: {fileID: 638368094}
   animator: {fileID: 1579586160}
