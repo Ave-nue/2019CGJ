@@ -8,6 +8,7 @@ public class MomPoint : MonoBehaviour
     public GameObject enemyPfb;
     public float generateCD;
     public int totalCount;
+    public float genRect;
 
     private float lastGeneTick;
     private int hasGene;
@@ -29,7 +30,7 @@ public class MomPoint : MonoBehaviour
     void GenerateEnemy()
     {
         GameObject newEnemy = Instantiate(enemyPfb);
-        newEnemy.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+        newEnemy.transform.SetPositionAndRotation(transform.position + UnityEngine.Random.insideUnitSphere * genRect, Quaternion.identity);
         lastGeneTick = Time.time;
         hasGene++;
     }
