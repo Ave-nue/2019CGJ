@@ -35,6 +35,7 @@ public class Enemy : Creature
 
     public void Update()
     {
+        base.Update();
         SearchPlayer(HateRange);
         if(player.isPowerUP || player.isTempPower)
             EscapePlayer();
