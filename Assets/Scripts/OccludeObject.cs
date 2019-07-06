@@ -21,13 +21,12 @@ public class OccludeObject : MonoBehaviour
     void RefreshZ()
     {
         Vector3 colliderPos = m_collider2D.bounds.center;
-        float offSet = transform.position.y - colliderPos.y;
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, GetZByY(colliderPos.y) + offSet);
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, GetZByY(colliderPos.y));
         transform.SetPositionAndRotation(newPos, Quaternion.identity);
     }
 
     float GetZByY(float y)
     {
-        return -y;
+        return y;
     }
 }
