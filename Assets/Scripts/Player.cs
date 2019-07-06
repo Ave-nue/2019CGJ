@@ -70,6 +70,7 @@ public class Player : Creature
         else
         {
             HP = 0;
+            LevelPanel.levelPanel.GameOver();
         }
     }
 
