@@ -21,6 +21,8 @@ public class Player : Creature
     public int point = 0;
     public int kill_number = 1;
 
+    public Vector2 movedir;
+
     new void Start()
     {
         base.Start();
@@ -37,7 +39,7 @@ public class Player : Creature
     // 控制移动
     void MoveUpdate()
     {
-        Vector2 movedir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movedir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (movedir != new Vector2(0, 0))
         {
@@ -86,7 +88,7 @@ public class Player : Creature
     public void PowerUP()
     {
         isPowerUP = true;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        //GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     // 暂时无敌，不能揍飞
