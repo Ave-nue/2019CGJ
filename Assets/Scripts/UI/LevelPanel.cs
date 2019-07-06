@@ -10,6 +10,7 @@ public class LevelPanel : MonoBehaviour
     public float shake_range = 0.1f;
 
     public GameObject pausePanel;
+    public Animator animator;
 
     public static LevelPanel levelPanel;
 
@@ -99,5 +100,10 @@ public class LevelPanel : MonoBehaviour
     {
         m_shakeTr = objTr;
         shakePos = objTr.position;
+    }
+
+    public void WarePant()
+    {
+        animator.Play("Ware");
     }
 }
