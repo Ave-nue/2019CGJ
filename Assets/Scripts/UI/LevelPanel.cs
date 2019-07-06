@@ -17,6 +17,7 @@ public class LevelPanel : MonoBehaviour
     private double m_targetTick;
     private Transform m_shakeTr;
     private Vector3 shakePos;
+    private double m_wareEndTick;
 
 
     private void Awake()
@@ -61,6 +62,16 @@ public class LevelPanel : MonoBehaviour
                 m_shakeTr.SetPositionAndRotation(shakePos + newPos, Quaternion.identity);
             }
         }
+
+        if (Time.timeScale == 0 && GetTick() >= m_wareEndTick)
+        {
+            Time.timeScale = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            WarePant();
+        }
     }
 
     public void OnBack2StartBtn()
@@ -104,6 +115,8 @@ public class LevelPanel : MonoBehaviour
 
     public void WarePant()
     {
-        animator.Play("Ware");
+        animator.Play("Ware", 0, 0f);
+        Time.timeScale = 0;
+        m_wareEndTick = GetTick() + 5d;
     }
 }

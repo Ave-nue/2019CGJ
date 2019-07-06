@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1353,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679194898
@@ -1602,6 +1602,7 @@ MonoBehaviour:
   bottomTime: 3
   shake_range: 0.1
   pausePanel: {fileID: 638368094}
+  animator: {fileID: 1579586160}
 --- !u!1 &984016408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1874,7 @@ GameObject:
   - component: {fileID: 1179563251}
   - component: {fileID: 1179563253}
   - component: {fileID: 1179563252}
+  - component: {fileID: 1179563254}
   m_Layer: 5
   m_Name: Color
   m_TagString: Untagged
@@ -1936,6 +1938,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179563250}
   m_CullTransparentMesh: 0
+--- !u!114 &1179563254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179563250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288bd1f5b7ea5e94db8c96e4c023991e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 1179563252}
+  sprite: {fileID: 0}
 --- !u!1 &1184077379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +1986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184077381
@@ -2248,7 +2264,7 @@ GameObject:
   - component: {fileID: 1579586159}
   - component: {fileID: 1579586160}
   m_Layer: 5
-  m_Name: Wave Effect
+  m_Name: Ware Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2288,7 +2304,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 027c0a2333c23d8449addbb20cf20517, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
