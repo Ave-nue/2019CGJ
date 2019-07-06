@@ -27,6 +27,6 @@ public class OccludeObject : MonoBehaviour
 
     float GetZByY(float y)
     {
-        return y;
+        return y * 0.01f;
     }
 }
