@@ -16,6 +16,7 @@ public class Player : Creature
     public GameObject TransportJustLeave;
 
     public bool isPowerUP = false;
+    public bool isTempPower = false;
 
     new void Start()
     {
@@ -64,13 +65,17 @@ public class Player : Creature
     // 受伤害
     public void Damage(float damage)
     {
-        Debug.Log("damage");
-        if(HP-damage>=0)
-            HP -= damage;
-        else
+        if(isTempPower==false)
         {
-            HP = 0;
-            LevelPanel.levelPanel.GameOver();
+            Debug.Log("damage");
+            if(HP-damage>=0)
+                HP -= damage;
+            else
+            {
+                HP = 0;
+                LevelPanel.levelPanel.GameOver();
+            }
+
         }
     }
 
@@ -81,11 +86,31 @@ public class Player : Creature
         GetComponent<SpriteRenderer>().color = Color.red;
     }
 
+    // 暂时无敌，不能揍飞
+
+    public void GetTempPower(float time)
+    {
+        Debug.Log("kaishi");
+        StartCoroutine("TempPower", time);
+    }
+    public IEnumerator TempPower(float time)
+    {
+        Debug.Log("temp power");
+        isTempPower = true;
+        GetComponent<SpriteRenderer>().color = Color.red;
+
+        yield return new WaitForSecondsRealtime(time);
+        isTempPower = false;
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
     void updateHpBar()
     {
         if (HPBar!= null)
         HPBar.value = HP / MAX_HP;
     }
+
+
 
     
 
