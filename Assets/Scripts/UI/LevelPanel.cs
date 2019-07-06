@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LevelPanel : MonoBehaviour
 {
+    public double bottomTime;
+
     public static LevelPanel levelPanel;
+
+    private double m_targetTick;
+    private Transform m_shakeTr;
+    private Vector3 shakePos;
 
     private void Awake()
     {
@@ -23,7 +30,20 @@ public class LevelPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            BottomFrame();
+            ShakeObj(GameObject.Find("Cube").transform);
+        }
+        if (Time.timeScale != 1 && GetTick() >= m_targetTick)
+        {
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale == 0)
+        {
+            Vector3 newPos = UnityEngine.Random.insideUnitCircle * 4f;
+            m_shakeTr.SetPositionAndRotation(shakePos + newPos, Quaternion.identity);
+        }
     }
 
     public void OnBack2StartBtn()
@@ -36,5 +56,24 @@ public class LevelPanel : MonoBehaviour
     {
         Time.timeScale = 0;
         Debug.Log("game over");
+    }
+
+    public void BottomFrame()
+    {
+        Time.timeScale = 0;
+        m_targetTick = GetTick() + bottomTime;
+    }
+
+    double GetTick()
+    {
+        var utcNow = DateTime.UtcNow;
+        var timeSpan = utcNow - new DateTime(1970, 1, 1, 0, 0, 0);
+        return (int)timeSpan.TotalSeconds;
+    }
+
+    public void ShakeObj(Transform objTr)
+    {
+        m_shakeTr = objTr;
+        shakePos = objTr.position;
     }
 }
