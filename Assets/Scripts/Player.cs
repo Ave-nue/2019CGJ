@@ -34,7 +34,7 @@ public class Player : Creature
     void MoveUpdate()
     {
         Vector2 movedir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Debug.Log("movedir:" + movedir);
+
         if (movedir != new Vector2(0, 0))
         {
             //rg.velocity = movedir * speed;
