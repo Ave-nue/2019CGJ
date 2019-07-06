@@ -95,8 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  attack: 1
+  attack: 10
   target: {fileID: 0}
+  HateRange: 3
+  isHate: 0
 --- !u!50 &6895859851698220417
 Rigidbody2D:
   serializedVersion: 4

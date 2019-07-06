@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : Creature
 {
     
-    Rigidbody2D rg;
+    //Rigidbody2D rg;
 
     public float MAX_HP = 10f;
     public float HP = 10f;
@@ -15,9 +15,10 @@ public class Player : Creature
     public bool isTransportCD = false;
     public GameObject TransportJustLeave;
 
-    void Start()
+    new void Start()
     {
-        rg = GetComponent<Rigidbody2D>();    
+        base.Start();
+        //rg = GetComponent<Rigidbody2D>();    
     }
 
     void Update()
@@ -30,8 +31,8 @@ public class Player : Creature
     // 控制移动
     void MoveUpdate()
     {
-        Vector2 movedir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        //Debug.Log("movedir:" + movedir);
+        Vector2 movedir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Debug.Log("movedir:" + movedir);
         if (movedir != new Vector2(0, 0))
         {
             //rg.velocity = movedir * speed;
