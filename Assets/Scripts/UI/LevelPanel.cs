@@ -9,6 +9,8 @@ public class LevelPanel : MonoBehaviour
     public double bottomTime;
     public float shake_range = 0.1f;
 
+    public GameObject pausePanel;
+
     public static LevelPanel levelPanel;
 
     private double m_targetTick;
@@ -32,22 +34,45 @@ public class LevelPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Time.timeScale != 1 && GetTick() >= m_targetTick)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 1;
+            if (Time.timeScale == 0)
+            {
+                OnBackBtn();
+            }
+            else
+            {
+                Time.timeScale = 0;
+                pausePanel.SetActive(true);
+            }
         }
-        else if (Time.timeScale == 0)
+
+        if (m_shakeTr != null)
         {
-            Vector3 newPos = UnityEngine.Random.insideUnitCircle * shake_range;
-            m_shakeTr.SetPositionAndRotation(shakePos + newPos, Quaternion.identity);
+            if (Time.timeScale != 1 && GetTick() >= m_targetTick)
+            {
+                Time.timeScale = 1;
+                m_shakeTr = null;
+            }
+            else if (Time.timeScale == 0)
+            {
+                Vector3 newPos = UnityEngine.Random.insideUnitCircle * shake_range;
+                m_shakeTr.SetPositionAndRotation(shakePos + newPos, Quaternion.identity);
+            }
         }
     }
 
     public void OnBack2StartBtn()
     {
+        OnBackBtn();
         SceneManager.LoadScene("Start Scene");
         levelPanel.gameObject.SetActive(false);
+    }
+
+    public void OnBackBtn()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
     }
 
     public void GameOver()
