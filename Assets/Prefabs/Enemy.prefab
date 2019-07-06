@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332ecdae8f535bb47887fa317d499527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  attack: 10
+  speed: 3
+  rg: {fileID: 0}
+  attack: 1
   target: {fileID: 0}
   HateRange: 3
   isHate: 0
@@ -119,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1778062486000132354
 CircleCollider2D:
   m_ObjectHideFlags: 0

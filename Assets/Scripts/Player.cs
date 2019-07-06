@@ -15,7 +15,7 @@ public class Player : Creature
     public bool isTransportCD = false;
     public GameObject TransportJustLeave;
 
-    bool isPowerUP = false;
+    public bool isPowerUP = false;
 
     new void Start()
     {
@@ -50,16 +50,16 @@ public class Player : Creature
     }
 
     
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("hit");
-        if (collision.gameObject.tag == "Enemy") 
-        {
-            Debug.Log("hitenemy");
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            Damage(enemy.attack);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("hit");
+    //    if (collision.gameObject.tag == "Enemy") 
+    //    {
+    //        Debug.Log("hitenemy");
+    //        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+    //        Damage(enemy.attack);
+    //    }
+    //}
 
     // 受伤害
     public void Damage(float damage)
@@ -76,7 +76,8 @@ public class Player : Creature
     // 变身无敌
     public void PowerUP()
     {
-        ;
+        isPowerUP = true;
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void updateHpBar()
