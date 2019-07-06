@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rg: {fileID: 0}
-  attack: 1
+  attack: 0.3
   target: {fileID: 0}
   escape_speed: 0.05
   HateRange: 5.12

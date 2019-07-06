@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelPanel : MonoBehaviour
 {
-    public static GameObject levelPanel;
+    public static LevelPanel levelPanel;
 
     private void Awake()
     {
         if (levelPanel)
             Destroy(gameObject);
         else
-            levelPanel = gameObject;
+            levelPanel = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,12 @@ public class LevelPanel : MonoBehaviour
     public void OnBack2StartBtn()
     {
         SceneManager.LoadScene("Start Scene");
-        levelPanel.SetActive(false);
+        levelPanel.gameObject.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        Debug.Log("game over");
     }
 }

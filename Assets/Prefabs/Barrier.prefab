@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3398610188981885953}
   - component: {fileID: 7509110689444401282}
   - component: {fileID: 2837102804391506568}
+  - component: {fileID: 5407339274552120545}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Enemy
@@ -131,3 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9496b8633df48d44a822f12649992b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5407339274552120545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398610188981885965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba07e86e298c22408c00590ae720781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fly_speed: 4

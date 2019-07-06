@@ -9,7 +9,7 @@ public class StartPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LevelPanel.levelPanel.SetActive(false);
+        LevelPanel.levelPanel.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class StartPanel : MonoBehaviour
     public void OnStartBtn()
     {
         SceneManager.LoadScene("Level 1");
-        LevelPanel.levelPanel.SetActive(true);
+        LevelPanel.levelPanel.gameObject.SetActive(true);
     }
 
     public void OnQuitBtn()

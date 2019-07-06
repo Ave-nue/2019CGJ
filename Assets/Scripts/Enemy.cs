@@ -94,6 +94,16 @@ public class Enemy : Creature
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.Damage(attack);
+
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
