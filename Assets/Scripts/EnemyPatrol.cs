@@ -80,6 +80,10 @@ public class EnemyPatrol : Enemy
                 GetComponent<CircleCollider2D>().enabled = false;
                 Vector2 dir = player.rg.velocity;
                 Move(dir * fly_speed);
+                //得分
+                Point.AddPoint(100 * player.kill_number);
+                player.kill_number++;
+                //顿帧
 
                 LevelPanel.levelPanel.BottomFrame();
                 LevelPanel.levelPanel.ShakeObj(transform);
