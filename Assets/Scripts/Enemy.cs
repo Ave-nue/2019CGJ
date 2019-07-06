@@ -86,6 +86,10 @@ public class Enemy : Creature
                 Vector2 dir = player.rg.velocity;
                 Move(dir * fly_speed);
 
+                //得分
+                Point.AddPoint(100 * player.kill_number);
+                player.kill_number++;
+
             }
             else
             {

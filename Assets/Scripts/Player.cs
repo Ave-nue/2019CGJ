@@ -18,6 +18,9 @@ public class Player : Creature
     public bool isPowerUP = false;
     public bool isTempPower = false;
 
+    public int point = 0;
+    public int kill_number = 1;
+
     new void Start()
     {
         base.Start();
@@ -109,6 +112,10 @@ public class Player : Creature
         if (HPBar!= null)
         HPBar.value = HP / MAX_HP;
     }
+
+ 
+
+
 
 
 
