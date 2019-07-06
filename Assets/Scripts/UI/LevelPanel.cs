@@ -17,6 +17,7 @@ public class LevelPanel : MonoBehaviour
     private double m_targetTick;
     private Transform m_shakeTr;
     private Vector3 shakePos;
+    private bool m_isWareing;
     private double m_wareEndTick;
 
 
@@ -30,7 +31,7 @@ public class LevelPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        m_isWareing = false;
     }
 
     // Update is called once per frame
@@ -63,9 +64,13 @@ public class LevelPanel : MonoBehaviour
             }
         }
 
-        if (Time.timeScale == 0 && GetTick() >= m_wareEndTick)
+        if (m_isWareing)
         {
-            Time.timeScale = 1;
+            if (Time.timeScale == 0 && GetTick() >= m_wareEndTick)
+            {
+                Time.timeScale = 1;
+                m_isWareing = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -95,7 +100,6 @@ public class LevelPanel : MonoBehaviour
 
     public void BottomFrame()
     {
-        Debug.Log("shake");
         Time.timeScale = 0;
         m_targetTick = GetTick() + bottomTime;
     }
@@ -118,5 +122,6 @@ public class LevelPanel : MonoBehaviour
         animator.Play("Ware", 0, 0f);
         Time.timeScale = 0;
         m_wareEndTick = GetTick() + 5d;
+        m_isWareing = true;
     }
 }

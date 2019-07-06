@@ -93,6 +93,7 @@ public class Player : Creature
     public void PowerUP()
     {
         isPowerUP = true;
+        LevelPanel.levelPanel.WarePant();
         //GetComponent<SpriteRenderer>().color = Color.red;
     }
 

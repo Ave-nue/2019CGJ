@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7382b07c9635d147b6b9494d38a103b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPfb: {fileID: 1922475561523512305, guid: 2be6e7a7e21ec8a4d8d0364514c02762,
+  enemyPfb: {fileID: 6895859851698220429, guid: bec3bcc736fe894458eb56d0922c20c9,
     type: 3}
   generateCD: 1
   totalCount: 5
+  genRect: 0
