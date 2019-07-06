@@ -36,7 +36,7 @@ public class Enemy : Creature
     public void Update()
     {
         SearchPlayer(HateRange);
-        if(player.isPowerUP)
+        if(player.isPowerUP || player.isTempPower)
             EscapePlayer();
         else
             ChasePlayer();
