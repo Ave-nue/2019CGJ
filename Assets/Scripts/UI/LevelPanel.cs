@@ -100,7 +100,6 @@ public class LevelPanel : MonoBehaviour
 
     public void BottomFrame()
     {
-        Debug.Log("shake");
         Time.timeScale = 0;
         m_targetTick = GetTick() + bottomTime;
     }

@@ -1336,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &679194897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1599,8 +1599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfd4d5b06c14b541820a50e4ac1c3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomTime: 0.3
-  shake_range: 0.1
+  bottomTime: 0.2
+  shake_range: 0.3
   pausePanel: {fileID: 638368094}
   animator: {fileID: 1579586160}
 --- !u!1 &984016408
@@ -1969,7 +1969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1184077380
 RectTransform:
   m_ObjectHideFlags: 0
