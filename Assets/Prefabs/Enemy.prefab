@@ -106,6 +106,8 @@ MonoBehaviour:
   isHate: 0
   fly_speed: 5
   isfly: 0
+  is_effecting: 0
+  effect: {fileID: 0}
 --- !u!50 &6895859851698220417
 Rigidbody2D:
   serializedVersion: 4
@@ -176,5 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   rg: {fileID: 0}
+  effect: {fileID: 3971696832162073629, guid: bbc59d1cb1f54574cbb4c631ecc7335a, type: 3}
+  effect_anim: {fileID: 0}
   horizontal_speed: 0
   vertical_speed: 0
+  enemy: {fileID: 0}

@@ -8,6 +8,7 @@ public class Wall : MonoBehaviour
 {
     bool isfly = false;
     public float fly_speed = 3f;
+    public float rotate_speed = 100f;
 
     Rigidbody2D rg;
 
@@ -20,7 +21,8 @@ public class Wall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("fuck");
+        transform.Rotate(transform.rotation.eulerAngles+new Vector3(0, 0, rotate_speed));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,8 +36,12 @@ public class Wall : MonoBehaviour
                 isfly = true;
                 GetComponent<CircleCollider2D>().enabled = false;
                 Vector2 dir = player.rg.velocity;
+                if (dir.magnitude < 1)
+                    dir *= 1/ dir.magnitude;
                 rg.constraints = RigidbodyConstraints2D.None;
                 rg.velocity = dir * fly_speed;
+
+                rotate_speed = 100f;
 
                 //顿帧
                 LevelPanel.levelPanel.BottomFrame();

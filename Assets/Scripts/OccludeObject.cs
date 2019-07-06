@@ -22,7 +22,7 @@ public class OccludeObject : MonoBehaviour
     {
         Vector3 colliderPos = m_collider2D.bounds.center;
         Vector3 newPos = new Vector3(transform.position.x, transform.position.y, GetZByY(colliderPos.y));
-        transform.SetPositionAndRotation(newPos, Quaternion.identity);
+        transform.position = newPos;
     }
 
     float GetZByY(float y)

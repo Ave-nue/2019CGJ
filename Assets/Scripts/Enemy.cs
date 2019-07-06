@@ -17,6 +17,9 @@ public class Enemy : Creature
     public float fly_speed = 10;
 
     public bool isfly = false;
+    public bool is_effecting = false;
+
+    public GameObject effect;
 
 
     Player player;
@@ -31,6 +34,8 @@ public class Enemy : Creature
         }
         player = target.GetComponent<Player>();
 
+        effect = GameObject.Find("hit effect");
+
     }
 
     public void Update()
@@ -41,6 +46,7 @@ public class Enemy : Creature
             EscapePlayer();
         else
             ChasePlayer();
+
     }
     
 
@@ -87,8 +93,13 @@ public class Enemy : Creature
                 Vector2 dir = player.rg.velocity;
                 Move(dir * fly_speed);
 
+                // 特效
+                GameObject a = Instantiate(effect, transform.position, Quaternion.identity);
+                Destroy(a, 0.4f);
+
                 LevelPanel.levelPanel.BottomFrame();
                 LevelPanel.levelPanel.ShakeObj(transform);
+                
 
 
                 //得分

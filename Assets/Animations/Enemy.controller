@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: horizontal_speed
-    m_EventTreshold: 0.2
+    m_EventTreshold: -0.2
   - m_ConditionMode: 4
     m_ConditionEvent: vertical_speed
     m_EventTreshold: 0.2
@@ -51,10 +51,10 @@ AnimatorStateMachine:
     m_Position: {x: -30, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7524927955498409923}
-    m_Position: {x: 200, y: 110, z: 0}
+    m_Position: {x: 260, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6881083531273480427}
-    m_Position: {x: 260, y: 400, z: 0}
+    m_Position: {x: 240, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1914459864029035701}
     m_Position: {x: 580, y: 240, z: 0}

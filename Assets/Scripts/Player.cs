@@ -22,6 +22,7 @@ public class Player : Creature
     public int kill_number = 1;
 
     public Vector2 movedir;
+    public bool is_effecting = false;
 
     new void Start()
     {
@@ -82,6 +83,9 @@ public class Player : Creature
                 LevelPanel.levelPanel.GameOver();
             }
 
+            //特效
+            is_effecting = true;
+            
         }
     }
 
