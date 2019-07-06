@@ -24,12 +24,14 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
+
+        horizontal_speed = player.movedir.x;
+        vertical_speed = player.movedir.y;
+
         if (player.is_effecting)
             effect.SetActive(true);
         else
             effect.SetActive(false);
-        horizontal_speed = player.movedir.x;
-        vertical_speed = player.movedir.y;
 
         anim.SetFloat("horizontal_speed", horizontal_speed);
         anim.SetFloat("vertical_speed", vertical_speed);
