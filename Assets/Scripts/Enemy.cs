@@ -13,6 +13,7 @@ public class Enemy : Creature
 
     void Start()
     {
+        base.Start();
         target = GameObject.Find("Player");
         if(target == null)
         {

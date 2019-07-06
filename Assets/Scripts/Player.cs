@@ -15,6 +15,8 @@ public class Player : Creature
     public bool isTransportCD = false;
     public GameObject TransportJustLeave;
 
+    bool isPowerUP = false;
+
     new void Start()
     {
         base.Start();
@@ -71,10 +73,19 @@ public class Player : Creature
         }
     }
 
+    // 变身无敌
+    public void PowerUP()
+    {
+        ;
+    }
+
     void updateHpBar()
     {
+        if (HPBar!= null)
         HPBar.value = HP / MAX_HP;
     }
+
+    
 
 
 
