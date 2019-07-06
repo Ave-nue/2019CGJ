@@ -98,10 +98,12 @@ MonoBehaviour:
   rg: {fileID: 0}
   attack: 1
   target: {fileID: 0}
-  escape_speed: 1
-  HateRange: 2
-  LoveRange: 3
+  escape_speed: 0.05
+  HateRange: 5.12
+  LoveRange: 7.76
   isHate: 0
+  fly_speed: 5
+  isfly: 0
 --- !u!50 &6895859851698220417
 Rigidbody2D:
   serializedVersion: 4

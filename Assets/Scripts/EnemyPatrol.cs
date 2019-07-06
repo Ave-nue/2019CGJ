@@ -31,6 +31,7 @@ public class EnemyPatrol : Enemy
     // Update is called once per frame
     new void Update()
     {
+        if(!isfly)
         MoveTo(current_target.transform.position);
         if ((transform.position - current_target.transform.position).magnitude < 0.1f && isHate==false)
         {
@@ -46,9 +47,11 @@ public class EnemyPatrol : Enemy
         ChasePlayer();
 
     }
+
+
     void ChasePlayer()
     {
-        if (isHate)
+        if (isHate && !isfly)
             MoveTo(target.transform.position);
     }
 
@@ -63,6 +66,27 @@ public class EnemyPatrol : Enemy
         }
         else if (distance < HateRange)
             isHate = true;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player.isPowerUP)
+            {
+                // 揍飞
+                isfly = true;
+                GetComponent<CircleCollider2D>().enabled = false;
+                Vector2 dir = player.rg.velocity;
+                Move(dir * fly_speed);
+
+            }
+            else
+            {
+                player.Damage(attack);
+            }
+        }
     }
 
 
