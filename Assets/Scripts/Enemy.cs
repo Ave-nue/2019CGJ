@@ -99,7 +99,6 @@ public class Enemy : Creature
         }
         else if (distance < HateRange)
             isHate = true;
-        else;
     }
 
 }
