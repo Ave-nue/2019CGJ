@@ -23,6 +23,7 @@ public class Creature : OccludeObject
     public new void Update()
     {
         base.Update();
+        
 
         //rg.velocity = new Vector2(0, 0);
     }

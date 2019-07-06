@@ -7,6 +7,8 @@ public class Enemy : Creature
     public float attack = 1f;
     public GameObject target;
 
+    public float escape_speed =1f;
+
     public float HateRange = 2f;
     public bool isHate = false;
 
@@ -46,7 +48,7 @@ public class Enemy : Creature
 
     void EscapePlayer()
     {
-        Move((transform.position - target.transform.position)*0.02f);
+        Move((transform.position - target.transform.position) * escape_speed);
     }
 
     void StopChase()
