@@ -29,8 +29,9 @@ public class Player : Creature
         //rg = GetComponent<Rigidbody2D>();    
     }
 
-    void Update()
+    new void Update()
     {
+        base.Update();
         MoveUpdate();
         updateHpBar();
     }
