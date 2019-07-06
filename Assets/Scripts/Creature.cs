@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creature : MonoBehaviour
+public class Creature : OccludeObject
 {
     [SerializeField]
     float speed = 5;
     public Rigidbody2D rg;
 
     // Start is called before the first frame update
-    public void Start()
+    public new void Start()
     {
+        base.Start();
+
         rg = GetComponent<Rigidbody2D>();
         if (rg == null)
             Debug.Log("null");
@@ -18,8 +20,10 @@ public class Creature : MonoBehaviour
             Debug.Log(rg);
     }
 
-    void Update()
+    public new void Update()
     {
+        base.Update();
+
         //rg.velocity = new Vector2(0, 0);
     }
 
