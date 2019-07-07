@@ -20,7 +20,7 @@ public class StartPanel : MonoBehaviour
 
     public void OnStartBtn()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(1);
         LevelPanel.levelPanel.gameObject.SetActive(true);
         SoundMgr.Instance().PlaySoundEffect(1);
     }
