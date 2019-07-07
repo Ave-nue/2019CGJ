@@ -10,7 +10,6 @@ public class Player : Creature
 
     public float MAX_HP = 10f;
     public float HP = 10f;
-    public Slider HPBar;
     [System.NonSerializedAttribute]
     public bool isTransportCD = false;
     public GameObject TransportJustLeave;
@@ -24,9 +23,18 @@ public class Player : Creature
     public Vector2 movedir;
     public bool is_effecting = false;
 
+    public GameObject pant;
+
+    private float m_winTime;
+    private Animator m_animator;
+
     new void Start()
     {
         base.Start();
+
+        m_animator = GetComponent<Animator>();
+        LevelPanel.levelPanel.ResetPoint();
+        updateHpBar();
         //rg = GetComponent<Rigidbody2D>();    
     }
 
@@ -35,6 +43,18 @@ public class Player : Creature
         base.Update();
         MoveUpdate();
         updateHpBar();
+
+        if (m_winTime != 0 && Time.time > m_winTime)
+        {
+            LevelPanel.levelPanel.GameWin();
+            m_winTime = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            m_animator.SetTrigger("piaorou");
+            SoundMgr.Instance().PlaySoundEffect(1);
+        }
     }
 
 
@@ -74,7 +94,6 @@ public class Player : Creature
     {
         if(isTempPower==false)
         {
-            Debug.Log("damage");
             if(HP-damage>=0)
                 HP -= damage;
             else
@@ -94,6 +113,9 @@ public class Player : Creature
     {
         isPowerUP = true;
         LevelPanel.levelPanel.WarePant();
+        m_winTime = Time.time + 5;
+        SoundMgr.Instance().PlaySoundEffect(1);
+        pant.SetActive(true);
         //GetComponent<SpriteRenderer>().color = Color.red;
     }
 
@@ -117,8 +139,7 @@ public class Player : Creature
 
     void updateHpBar()
     {
-        if (HPBar!= null)
-        HPBar.value = HP / MAX_HP;
+        LevelPanel.levelPanel.SetHP(HP / MAX_HP);
     }
 
  

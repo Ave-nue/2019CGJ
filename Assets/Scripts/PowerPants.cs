@@ -19,7 +19,6 @@ public class PowerPants : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("fuck");
         if(collision.gameObject.tag =="Player")
         {
             Player player = collision.gameObject.GetComponent<Player>();

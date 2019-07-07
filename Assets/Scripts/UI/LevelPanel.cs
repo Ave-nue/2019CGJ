@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class LevelPanel : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class LevelPanel : MonoBehaviour
     public float shake_range = 0.1f;
 
     public GameObject pausePanel;
+    public FinalPanel finalPanel;
     public Animator animator;
+    public Slider HPBar;
+    public Point point;
 
     public static LevelPanel levelPanel;
 
@@ -90,12 +94,35 @@ public class LevelPanel : MonoBehaviour
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+        finalPanel.gameObject.SetActive(false);
+    }
+
+    public void OnGoOnBtn()
+    {
+        Time.timeScale = 1;
+        finalPanel.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OnRetryBtn()
+    {
+        Time.timeScale = 1;
+        finalPanel.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GameWin()
+    {
+        Time.timeScale = 0;
+        finalPanel.gameObject.SetActive(true);
+        finalPanel.Show(true);
     }
 
     public void GameOver()
     {
         Time.timeScale = 0;
-        Debug.Log("game over");
+        finalPanel.gameObject.SetActive(true);
+        finalPanel.Show(false);
     }
 
     public void BottomFrame()
@@ -123,5 +150,15 @@ public class LevelPanel : MonoBehaviour
         Time.timeScale = 0;
         m_wareEndTick = GetTick() + 5d;
         m_isWareing = true;
+    }
+
+    public void SetHP(float newValue)
+    {
+        HPBar.value = newValue;
+    }
+
+    public void ResetPoint()
+    {
+        point.SetPoint(0);
     }
 }

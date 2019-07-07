@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GetComponent<Player>();
-        effect = transform.GetChild(0).gameObject;
+        effect = transform.GetChild(1).gameObject;
         effect_anim = effect.GetComponent<Animator>();
     }
 

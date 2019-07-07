@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FlashColor : MonoBehaviour
 {
     public Image img;
-    public Sprite sprite;
+    public SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,12 @@ public class FlashColor : MonoBehaviour
             Vector3 hsv;
             Color.RGBToHSV(img.color, out hsv.x, out hsv.y, out hsv.z);
             img.color = Color.HSVToRGB(((hsv.x * 360 + 7) % 360) / 360, 1, 1);
-            Color.RGBToHSV(img.color, out hsv.x, out hsv.y, out hsv.z);
         }
         if (sprite)
         {
-
+            Vector3 hsv;
+            Color.RGBToHSV(sprite.color, out hsv.x, out hsv.y, out hsv.z);
+            sprite.color = Color.HSVToRGB(((hsv.x * 360 + 7) % 360) / 360, 1, 1);
         }
     }
 }

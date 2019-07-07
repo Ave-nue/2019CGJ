@@ -32,6 +32,7 @@ public class Wall : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player.isPowerUP)
             {
+                SoundMgr.Instance().PlaySoundEffect(2);
                 // 揍飞
                 isfly = true;
                 GetComponent<CircleCollider2D>().enabled = false;

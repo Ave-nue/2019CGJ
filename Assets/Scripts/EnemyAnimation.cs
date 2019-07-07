@@ -20,8 +20,8 @@ public class EnemyAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
         rg = GetComponent<Rigidbody2D>();
 
-        effect = transform.GetChild(0).gameObject;
-        effect_anim = effect.GetComponent<Animator>();
+        //effect = transform.GetChild(0).gameObject;
+        //effect_anim = effect.GetComponent<Animator>();
 
         enemy = gameObject.GetComponent<Enemy>();
     }

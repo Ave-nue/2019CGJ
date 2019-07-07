@@ -87,6 +87,7 @@ public class Enemy : Creature
             Player player = collision.gameObject.GetComponent<Player>();
             if(player.isPowerUP)
             {
+                SoundMgr.Instance().PlaySoundEffect(3);
                 // 揍飞
                 isfly = true;
                 GetComponent<CircleCollider2D>().enabled = false;

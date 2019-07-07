@@ -14,10 +14,6 @@ public class Creature : OccludeObject
         base.Start();
 
         rg = GetComponent<Rigidbody2D>();
-        if (rg == null)
-            Debug.Log("null");
-        else
-            Debug.Log(rg);
     }
 
     public new void Update()

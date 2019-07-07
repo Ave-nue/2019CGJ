@@ -35,6 +35,10 @@ public class Point : MonoBehaviour
                     //text.richText = true;
                     current_number += (int)((number - current_number) / increase_speed);
             }
+            else if (current_number > number)
+            {
+                current_number = number;
+            }
             text.text = current_number.ToString();
 
         }
@@ -44,7 +48,6 @@ public class Point : MonoBehaviour
 
     public static void AddPoint(int num)
     {
-        Debug.Log("add");
         Point.number += num;
     }
 

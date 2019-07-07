@@ -22,6 +22,7 @@ public class StartPanel : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1");
         LevelPanel.levelPanel.gameObject.SetActive(true);
+        SoundMgr.Instance().PlaySoundEffect(1);
     }
 
     public void OnQuitBtn()
