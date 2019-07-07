@@ -117,6 +117,8 @@ public class Player : Creature
         SoundMgr.Instance().PlaySoundEffect(1);
         pant.SetActive(true);
         //GetComponent<SpriteRenderer>().color = Color.red;
+
+        Camera.main.GetComponent<LightControl>().PowerUPLight();
     }
 
     // 暂时无敌，不能揍飞

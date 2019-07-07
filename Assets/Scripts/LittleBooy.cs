@@ -13,12 +13,28 @@ public class LittleBooy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.PowerUP();
             pants.SetActive(false);
+            GetComponent<Collider2D>().enabled = false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.PowerUP();
+
+            pants.SetActive(false);
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 }
